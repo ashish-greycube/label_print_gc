@@ -12,10 +12,11 @@ def get_icecream_label_print_pdf(doctype,docname, print_type='indirectpdf'):
      })
      html = frappe.get_template("label_print_gc/print_format/multiple_col_item_barcode.html").render(doc=doc)
      options={
-        "page-width": "210mm",
-        "page-height": "297mm",          
+     #    "page-width": "210mm",
+     #    "page-height": "297mm",          
         "margin-left":"0mm",
-        "margin-right":"0mm"
+        "margin-right":"0mm",
+        "page-size":"A4"
        
 }
      if print_type=='indirectpdf':

@@ -1,0 +1,34 @@
+<style>
+    .print-format {
+       margin-top:9mm;  
+       margin-bottom: 0mm;
+       margin-left:0mm;
+       margin-right:0mm
+  }
+	svg{
+	    width: 100%!important;;
+	    height: 1.5cm !important;;
+	}
+
+</style>
+
+
+<table style="width:100%;"  >
+    {%- for item in doc.item_barcode_print -%}
+    {%- for i in range(item.qty)  -%}
+  
+    {% if loop.index0 % 3 == 0 %}
+    <tr>
+        {% endif %}
+        <td style="width:7cm!important;;height:2.5cm;">
+             {{ item.barcode}}
+            <small>&nbsp;&nbsp;SR {{ item.item_name}} {{ frappe.format(item.item_rate, {'fieldtype': 'Currency'}) }} </small>
+        </td>
+
+        {% if not loop.last and loop.nextitem % 3 == 0 %}
+    </tr>
+    {% endif %}
+
+    {% endfor %}
+    {% endfor %}
+</table>

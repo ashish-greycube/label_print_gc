@@ -2,7 +2,7 @@ from . import __version__ as app_version
 
 app_name = "label_print_gc"
 app_title = "Label Print Gc"
-app_publisher = "admin@greycube.in"
+app_publisher = "GreyCube Technologies"
 app_description = "label"
 app_icon = "octicon octicon-file-directory"
 app_color = "grey"
@@ -31,7 +31,7 @@ app_license = "MIT"
 # page_js = {"page" : "public/js/file.js"}
 
 # include js in doctype views
-# doctype_js = {"doctype" : "public/js/doctype.js"}
+doctype_js = {"Print Barcode Label" : "public/js/print_barcode_label.js"}
 # doctype_list_js = {"doctype" : "public/js/doctype_list.js"}
 # doctype_tree_js = {"doctype" : "public/js/doctype_tree.js"}
 # doctype_calendar_js = {"doctype" : "public/js/doctype_calendar.js"}

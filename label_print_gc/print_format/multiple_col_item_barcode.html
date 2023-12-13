@@ -1,7 +1,7 @@
 <style>
     .print-format {
-       margin-top:6mm;  
-       margin-bottom: 0mm;
+       margin-top:8mm;  
+       margin-bottom: 8mm;
 
   }
 	svg{
@@ -13,13 +13,31 @@
 	margin-right: 0px!important;
     margin: 0;
   padding: 0!important; */
-  border-spacing: 1px;
+  border-spacing: 0px;
     ;
-}    
+} 
+@page {
+	size: 'A4';
+	margin-top: 8mm!important;
+	margin-bottom: 8mm!important;
+	margin-left: 0!important;
+	margin-right: 0!important;
+	padding-top: 0!important;
+	padding-bottom: 0!important;
+
+}   
 @media print {
   body {
-    margin: 0;
-    padding: 0;
+    margin: 0!important;
+    padding: 0!important;
+    min-height: 297mm;
+	height: 297mm!important;
+	min-width: 210mm !important;
+	max-width: 210mm !important;
+	padding-top: 0mm!important;
+	padding-right: 0mm!important;
+	padding-left: 0mm!important;
+	padding-bottom: 0mm!important;    
   }
 
 }
@@ -34,10 +52,15 @@
         {% if loop.index0 % 3 == 0 %}
         <tr>
         {% endif %}
-        
-        <td style="background-color: burlywood;width:7cm!important;height:2.5cm;">
-             {{ item.barcode}}
-            <small>&nbsp;&nbsp;SR {{ item.item_name}} {{ frappe.format(item.item_rate, {'fieldtype': 'Currency'}) }} </small>
+        <!-- <td style="width:7cm!important;height:2.5cm;"> -->
+        {% if loop.index0 % 2 == 0 %}
+        <td style="width:7cm!important;height:2.5cm; background-color: blue;">
+            {% else %}
+            <td style="width:7cm!important;height:2.5cm; background-color: azure;">
+            {% endif %}
+                      {{ item.barcode}}
+                <small>&nbsp;&nbsp;SR {{ item.item_name}} {{ frappe.format(item.item_rate, {'fieldtype': 'Currency'}) }} </small>
+
         </td>
 
         {% if loop.index % 3 == 0 %}
@@ -47,3 +70,18 @@
     {% endfor %}
     {% endfor %}
 </table>
+
+<!-- <table style="width:100%;"  >
+    {%- for item in doc.item_barcode_print -%}
+        {%- for i in range((item.qty/3)|round(method="ceil")|int)  -%}
+        <tr> 
+            {% for c in range(3) %}
+                <td style="background-color: burlywood;width:7cm!important;height:2.5cm;">
+                     {{ item.barcode}}
+                    <small>&nbsp;&nbsp;SR {{ item.item_name}} {{ frappe.format(item.item_rate, {'fieldtype': 'Currency'}) }} </small>
+                </td>
+            {% endfor %}
+        </tr>
+        {% endfor %}
+    {% endfor %}    
+    </table> -->

@@ -31,7 +31,8 @@ app_license = "MIT"
 # page_js = {"page" : "public/js/file.js"}
 
 # include js in doctype views
-doctype_js = {"Print Barcode Label" : "public/js/print_barcode_label.js"}
+doctype_js = {"Item" : "public/js/item_print_single_barcode_label.js"}
+# doctype_js = {"Print Barcode Label" : "public/js/print_barcode_label.js"}
 # doctype_list_js = {"doctype" : "public/js/doctype_list.js"}
 # doctype_tree_js = {"doctype" : "public/js/doctype_tree.js"}
 # doctype_calendar_js = {"doctype" : "public/js/doctype_calendar.js"}
@@ -188,3 +189,8 @@ user_data_fields = [
 #	"label_print_gc.auth.validate"
 # ]
 
+# jenv = {
+# 	"methods": [
+# 		"get_item_barcode:label_print_gc.api.get_item_barcode"
+# 	]
+# }

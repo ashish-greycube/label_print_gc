@@ -1,0 +1,53 @@
+<style>
+    .print-format {
+       margin-top:0mm;  
+       margin-bottom: 0mm;
+
+  }
+  .barcode-size{
+	    width: 523mm!important;;
+	    height: 512mm !important;;
+	}
+
+
+@page {
+	/* size: 'A4'; */
+	margin-top: 0mm!important;
+	margin-bottom: 0mm!important;
+	margin-left: 0!important;
+	margin-right: 0!important;
+	padding-top: 0!important;
+	padding-bottom: 0!important;
+
+}   
+@media print {
+  body {
+    margin: 0!important;
+    padding: 0!important;
+    min-height: 12mm;
+	height: 12mm!important;
+	min-width: 45mm !important;
+	max-width: 45mm !important;
+	padding-top: 0mm!important;
+	padding-right: 0mm!important;
+	padding-left: 0mm!important;
+	padding-bottom: 0mm!important;    
+  }
+
+}
+
+</style>
+<span class="barcode-size">{{ doc.barecode_lable }}</span>
+
+
+
+
+<!-- <table cellspacing="0" cellpadding="0" border="0">
+    <tr>
+      <td rowspan="2"><img  src="data:image/png;base64,{{ get_item_barcode(doc.barecode_lable) }}"></td>
+      <td style="font-size:1;">{{doc.item_name}}</td>
+    </tr>
+    <tr>
+      <td style="font-size: 1;"> {{doc.valuation_rate}}</td>
+    </tr>
+  </table> -->

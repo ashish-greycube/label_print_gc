@@ -1,11 +1,11 @@
 import frappe
+import base64
+import barcode
 from frappe import _
 from frappe.utils.pdf import get_pdf
 from io import BytesIO
 from barcode import Code128
 from barcode.writer import ImageWriter
-import base64
-import barcode
 from werkzeug.wrappers import Response
 from frappe.utils import flt, cint
 

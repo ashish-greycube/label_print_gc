@@ -194,3 +194,9 @@ user_data_fields = [
 # 		"get_item_barcode:label_print_gc.api.get_item_barcode"
 # 	]
 # }
+
+jenv = {
+    "methods": [
+        "get_ewaybill_barcode:label_print_gc.api.get_ewaybill_barcode"
+    ],
+}

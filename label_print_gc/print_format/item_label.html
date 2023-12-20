@@ -53,6 +53,7 @@
 {% endif %}
 {% endmacro %}
 
+
 <!-- content -->
 <div id="header-html">
     <!-- empty place holder to remove top-marging in pdf -->
@@ -61,13 +62,17 @@
 
 <table style="border-collapse: collapse;border-spacing: 0; width: 100%;">
     <tr>
-        <td style="padding-left: 1; margin: 0;" rowspan="2">{{render_barcode(doc.barcode_label)}}</td>
-        <td style="padding-right: 2; padding-top: 5; padding-left: 0;padding-bottom: 0;margin: 0;font-size: 5px; text-align: right;">{{doc.item_name}}</td>
+        <!-- <td style="padding-left: 1; margin: 0;" rowspan="3">{{render_barcode(doc.barcode_label)}}</td> -->
+        <td style="padding-left: 1; margin: 0;" rowspan="3"><img class="barcode" src="data:image/png;base64,{{ get_ewaybill_barcode(doc.barcode_label) }}"></td>
+        <td style="padding-right: 2; padding-top: 5; padding-left: 0;padding-bottom: 0;margin: 0;font-size: 6px; text-align: center;">{{doc.item_name}}</td>
         
     </tr>
    <tr>
-    <td style="padding-right: 2; padding-left: 0;padding-bottom: 0;padding-top: 0;margin: 0; font-size: 5px; text-align: right;">{{doc.sales_price}}</td>
+    <td style="padding-right: 2; padding-left: 0;padding-bottom: 0;padding-top: 0;margin: 0; font-size: 7px; text-align: center;">{{doc.item_code}}</td>
    </tr>
+   <tr>
+    <td style="padding-right: 2; padding-left: 0;padding-bottom: 0;padding-top: 0;margin: 0; font-size: 5px; text-align: center;">{{doc.sales_price}} SAR</td>
+   </tr>   
 </table>
 <div id="footer-html">
     <!-- empty place holder to remove bottom-marging in pdf -->

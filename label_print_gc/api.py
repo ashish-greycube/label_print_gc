@@ -164,3 +164,24 @@ def get_barcode(
     response.mimetype = "image/png"
     response.data = buf.getvalue()
     return response     
+
+
+@frappe.whitelist()
+def get_ewaybill_barcode(barcode_text):
+    print('barcode_text',barcode_text)
+    stream = BytesIO()
+    Code128(str(barcode_text), writer=ImageWriter()).write(
+        stream,
+        {
+            "module_width": 0.1,
+            "module_height":1,
+            "quiet_zone":0,
+            "write_text":0,
+            # "text_distance": 2,
+            "font_size": 0,
+        },
+    )
+    barcode_base64 = base64.b64encode(stream.getbuffer()).decode()
+    stream.close()
+
+    return barcode_base64

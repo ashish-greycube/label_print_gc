@@ -62,17 +62,15 @@
 
 
 <table style="border-collapse: collapse;border-spacing: 0; width: 100%;">
-    <tr>
+    <tr style="width: 20mm!important;">
         <!-- <td style="padding-left: 1; margin: 0;" rowspan="3">{{render_barcode(doc.barcode_label)}}</td> -->
-        <td style="padding-left: 0; margin: 0;" rowspan="3"><img class="barcode" src="data:image/png;base64,{{ get_ewaybill_barcode(doc.barcode_label) }}"></td>
-        <td style="padding-right: 0; padding-top: 1; padding-left: 0;padding-bottom: 0;margin: 0;font-size: 6px; font-weight: bold; text-align: center;">{{doc.item_name}}</td>
+        <!-- <td style="padding-left: 0; margin: 0;" rowspan="3"><img class="barcode" src="data:image/png;base64,{{ get_ewaybill_barcode(doc.barcode_label) }}"></td> -->
+        <td rowspan="2" style="padding-right: 0; padding-top: 2; padding-left: 0;padding-bottom: 0;margin: 0;font-size: 12px; font-weight: bold; text-align: center;">{{doc.item_name}}</td>
+        <td style="padding-right: 0; padding-left: 0;padding-bottom: 0;padding-top: 4;margin: 0; font-size: 10px; font-weight: bold; text-align: center;">{{doc.item_code}}</td>
         
     </tr>
-   <tr>
-    <td style="padding-right: 0; padding-left: 0;padding-bottom: 0;padding-top: 0;margin: 0; font-size: 7px; font-weight: bold; text-align: center;">{{doc.item_code}}</td>
-   </tr>
-   <tr>
-    <td style="padding-right: 0; padding-left: 0;padding-bottom: 0;padding-top: 0;margin: 0; font-size: 5px; font-weight: bold; text-align: center;">{{doc.sales_price}} SAR</td>
+   <tr style="width: 20mm!important;">
+    <td style="padding-right: 0; padding-left: 0;padding-bottom: 0;padding-top: 1;margin: 0; font-size: 10px; font-weight: bold; text-align: center;">{{doc.sales_price}} SAR</td>
    </tr>   
 </table>
     <!-- empty place holder to remove bottom-marging in pdf -->
